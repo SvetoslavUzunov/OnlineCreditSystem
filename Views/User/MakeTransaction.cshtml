@@ -1,0 +1,37 @@
+﻿@model UserTransactionFormModel
+
+@{
+    ViewBag.Title = "Make Transaction";
+}
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <h2 class="heading-margin text-center">@ViewBag.Title</h2>
+
+        <p>To finalize your transaction, you should fills friend's phone number and amount credits below.</p>
+        <form asp-controller="User" asp-action="MakeTransaction" asp-route-userId="@Context.Session.GetString("UserID")" method="post">
+            <div class="form-group">
+                <label asp-for="PhoneNumber"></label>
+                <input asp-for="PhoneNumber" class="form-control">
+                <span asp-validation-for="PhoneNumber" class="small text-danger" />
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="AmountCredits"></label>
+                <input asp-for="AmountCredits" class="form-control">
+                <span asp-validation-for="AmountCredits" class="small text-danger" />
+            </div>
+            <br />
+
+            <p>(Optional)</p>
+            <div class="form-group">
+                <label asp-for="Comment"></label>
+                <textarea asp-for="Comment" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Comment" class="small text-danger" />
+            </div>
+            <br />
+
+            <input type="submit" class="btn btn-primary mt-1" value="Send">
+        </form>
+    </div>
+</div>

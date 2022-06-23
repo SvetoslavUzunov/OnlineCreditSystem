@@ -1,0 +1,31 @@
+﻿@model List<UserViewModel>
+
+@{
+    ViewBag.Title = "All Users";
+}
+
+@if (Model.Count <= 1)
+{
+    <h5>No found users in the system yet...</h5>
+}
+else
+{
+    <div class="container">
+        <div class="row card-header">
+            @for (int i = 1; i < Model.Count(); i++)
+            {
+                <div class="card text-center mb-3">
+                    <div class="card-header">
+                        User details
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text text-secondary">Email: @Model[i].Email</p>
+                        <p class="card-text text-secondary">Phone number: @Model[i].PhoneNumber</p>
+                        <p class="card-text text-secondary">Credits: @Model[i].Credits</p>
+                    </div>
+                </div>
+                <br />
+            }
+        </div>
+    </div>
+}

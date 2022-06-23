@@ -1,0 +1,27 @@
+﻿@model List<TransactionViewModel>
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+@if (Model.Count == 0)
+{
+    <h5>You haven't any transactions yet!</h5>
+}
+else
+{
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <div class="card text-center">
+            <div class="card-header">
+                Transaction details
+            </div>
+            <div class="card-body">
+                <p class="card-text text-secondary">Amount credits: @Model[i].AmountCredits</p>
+                <p class="card-text text-secondary">Comment: @Model[i].Comment</p>
+                <p class="card-text text-secondary">On: @Model[i].Date</p>
+            </div>
+        </div>
+        <br />
+    }
+}

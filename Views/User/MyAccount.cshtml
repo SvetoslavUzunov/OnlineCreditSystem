@@ -1,0 +1,18 @@
+﻿@model UserViewModel
+
+@{
+    ViewBag.Title = "My Account";
+}
+
+<div class="card text-center">
+    <div class="card-header">
+        Account details
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Hello, @Model.Email!</h5>
+        <p class="card-text text-secondary">Your phone number: @Model.PhoneNumber</p>
+        <p class="card-text text-secondary">Your credits: @Model.Credits</p>
+        <p>Do you want to make a transaction to friend?</p>
+        <a asp-controller="User" asp-action="MakeTransaction" class="btn btn-primary">Make transaction</a>
+    </div>
+</div>
